@@ -16,7 +16,7 @@
 ### 1.1 install/uninstall
 ### 1.2 start/stop/status
 ### 1.3 configure
-### 1.4 configure
+### 1.4 reconfigure
 ### 1.5 插件设定为自启动
 
 

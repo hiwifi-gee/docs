@@ -1,0 +1,103 @@
+#!/bin/sh
+
+# 本插件仅是一个 测试插件, 其中很多无用代码 仅做测试之用
+start()
+{
+    # App启动代码
+    # 函数返回0表示启动成功，返回非0表示启动失败
+	#  按钮 调用此函数
+
+	cp ./yurenchen_test.conf /tmp/yurenchen_start
+	[ -f yurenchen_test.conf ] && . yurenchen_test.conf
+	echo "yurenchen_test is running: $testconf1" > /tmp/yurenchen_test
+	return 0
+}
+
+stop()
+{
+    # App停止代码
+	# 【暂停服务】 按钮 调用此函数
+
+	rm /tmp/yurenchen_test
+	echo 'stop me'
+}
+
+status()
+{
+    # App状态查询代码
+	# 【刷新状态】 按钮 调用此函数
+
+	#[ -f yurenchen_test.conf ] && . yurenchen_test.conf
+	. /tmp/yurenchen_install
+    if [ -f /tmp/yurenchen_test ]; then
+        echo "{ \"status\" : \"running\" }"
+    else
+        #echo "{ \"status\" : \"stopped\" }"
+		# 目前自定义消息 还不能同时 返回 运行状态
+        #echo "{ \"status\" : \"MSG: hello, $testconf1 \" }"
+        echo "{ \"status\" : \"MSG: <span style='color:blue'>hello</span>, $testconf1 \" }"
+    fi
+}
+
+install()
+{
+    # App安装代码
+    # 函数返回0表示安装成功，返回非0表示安装失败
+	# 【插件安装时】 调用此函数
+	# tgz 包内文件 和 .conf 文件 会在当前目录 释放,
+	# script 文件会被 复制到 /etc/market/APPNAME.script 
+	# 临时目录会被清理,其他需要留存的文件 需要脚本自行 cp 到相应目录 (配置信息 也可以存入 uci)
+
+	local outfile=/tmp/yurenchen_test_install
+	# 配置文件: 插件英文名称.conf
+	cp ./yurenchen_test.conf /tmp/yurenchen_install
+	[ -f yurenchen_test.conf ] && . yurenchen_test.conf
+	echo "install : ${testconf1} " > $outfile
+	echo "pwd: `pwd`" >> $outfile
+	ls . >> $outfile
+	echo "hello world `date -Is`"
+	# 安装失败时 可以通过 <User-Echo> (区分大小写)返回消息给用户
+	# 安装成功时 不显示 消息
+	echo "<User-Echo>hi~ `date -Is`"
+
+	# 测试配置文件中的参数
+	if [ "$RADIO" == "0" ]; then
+		return 1
+	fi
+
+	return 0
+}
+
+uninstall()
+{
+    # App卸载代码
+	# 【卸载插件时】 调用此函数
+
+	# return 
+	echo 'uninstall me'
+}
+
+reconfigure()
+{
+    # App重新配置参数
+    # 【重新配置参数时】 调用此函数, 会获得新的 .conf 文件, 在 当前目录
+	# 配置文件: 插件英文名称.conf
+	stop
+	cp ./yurenchen_test.conf /tmp/yurenchen_reconfigure
+	[ -f yurenchen_test.conf ] && . yurenchen_test.conf
+
+	start
+
+	# 注: 这个函数中 返回值 和 <User-Echo> 没用
+	echo "<User-Echo>hi~ `date -Is`"
+
+	# parameter from conf
+	if [ "$RADIO" == "0" ]; then
+		return 1
+	fi
+
+	return 0
+
+}
+
+

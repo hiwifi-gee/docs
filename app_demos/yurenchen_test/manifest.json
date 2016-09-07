@@ -1,0 +1,61 @@
+{
+   "manifest_version": "2.0.0",
+   "requirements": {
+	   "support_refconfig":1
+   },
+   "configuration": [
+       {
+           "name": "单行文本",
+           "type": "text",
+           "variable": "DTEXT",
+           "defaultvalue": "这是默认值",
+           "required": 1,
+           "description": "这是描述",
+           "regexpression": ""
+       },
+       {
+           "name": "密码框",
+           "type": "password",
+           "variable": "PTEXT",
+           "defaultvalue": "这是默认值",
+           "required": 1,
+           "description": "这是描述",
+           "regexpression": ""
+       },
+       {
+           "name": "多行文本",
+           "type": "txtfile",
+           "variable": "MORE",
+           "defaultvalue": "1;2;3;4;",
+           "required": "",
+           "description": ""
+       },
+       {
+           "name": "单选框",
+           "type": "radio",
+           "variable": "RADIO",
+           "choices": "是=1;否=0",
+           "defaultvalue": 1,
+           "required": 1,
+           "description": "这是描述"
+       },
+       {
+           "name": "下拉菜单",
+           "type": "selection",
+           "variable": "SELECT",
+           "choices": "a=1;b=2;c=3",
+           "defaultvalue": "2",
+           "required": "",
+           "description": "这是描述"
+       },
+       {
+           "name": "多选框",
+           "type": "checkbox",
+           "variable": "CHECKBOX",
+           "choices": "a=a;b=2;v=3",
+           "defaultvalue": "3",
+           "required": "",
+           "description": "这是描述"
+       }
+   ]
+}

@@ -332,3 +332,7 @@ router_info接口返回路由器的系统版本，mac地址等信息
 | 100017 | 数据格式应该为application/json |
 | 100018 | 调用client端接口的时候发现未知的方法 |
 | 100019 | 请输入客户端ID:client_id |
+
+
+### openapi v1 接口文档
+[接口文档压缩包](openapi_v1_doc.tgz)

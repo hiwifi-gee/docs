@@ -6,6 +6,8 @@
 
 * [开发插件入门文档](dev_docs/GettingStarted.md)
 * [插件脚本文档](dev_docs/script.md)
+* [编译极路由可运行的二进制程序的SDK使用方法](dev_docs/sdk_usage.md)
+* [OpanAPI使用](dev_docs/openapi.md)
 * [远程调试用户路由器功能说明](dev_docs/remote_debug.md)
 * [付费插件](dev_docs/plugin_pay.md)
 

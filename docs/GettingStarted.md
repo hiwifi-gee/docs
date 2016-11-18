@@ -24,7 +24,9 @@
 建议用版本管理器来管理代码，例如： git，svn
 
 ### 插件里的必要文件
+
 插件至少包括两个文件，插件属性描述（manifest.json）和插件运行文件（script）
+
 manifest.json文件：
 ```javascript
 {

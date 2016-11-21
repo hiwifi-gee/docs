@@ -23,7 +23,6 @@
 * 配置开发环境：
 ```bash
 apt-get install subversion git build-essential libncurses5-dev zlib1g-dev gawk unzip gettext libssl-dev intltool openjdk-6-jre-headless optipng
-
 ln -sf bash /bin/sh
 ```
 * 设定你当前的目录为： /home/hiwifi

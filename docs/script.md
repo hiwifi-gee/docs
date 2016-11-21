@@ -24,7 +24,7 @@ cp app.json	/etc/market/PLUGIN_NAME.info
 install和uninstall两个互逆函数。
 一定要保证在install函数中做的操作，在uninstall函数中都会被撤销掉。
 
-#### 如果安装过程中出现错误，如何提示给用户？
++ 如果安装过程中出现错误，如何提示给用户？
 如果在install和uninstall中出现错误，可以echo以<User-Echo>开头的字符串，服务端会提示给用户。
 具体的格式如下：
 ```bash
@@ -57,7 +57,7 @@ status函数返回的字符串**必须是json**。
 
 除了可以执行之外，插件还可以接收配置参数。
 
-#### 配置参数类型
++ 配置参数类型
 增加配置参数，是在manifest.json中定义的
 参数支持的类型类似于html，有text/txtfile/radio/selection/checkbox/password
 下面是各种定义的示例，同时还支持一些属性：
@@ -136,18 +136,18 @@ status函数返回的字符串**必须是json**。
 "regexpression": ""  //  输入满足的正则表达式，这个正则表达式是PCRE兼容的才可以。正则匹配用户所填数据("/^正则$/")，或使用is_ip(是否是ip)、is_port(是否是端口号)
 "choices": "a=1;b=2;c=3"  //这个对于select/radio/checkbox有效，规则类似：name=value;name1=value1
 ```
-#### 如何读取配置
++ 如何读取配置
 配置文件会在配置完成之后，以独立文件下发，如果插件名字叫demo_test，在当时插件的临时目录会有一个demo_test.conf的文件。 直接 . demo_test.conf就可以使用变量了。
 txtfile这个稍微有点特殊，由于可以存很多行，数据比较多，这个类型的参数值，会以独立的文件存在，比如上面的例子，就会有一个文件MORE，在当前目录下。直接cat MORE
 这个文件就可以。
 
 有一个具体的app_demos/yurenchen_test，里面有具体的代码可以供大家参考。
 
-#### 需要配置插件需要注意的地方
++ 需要配置插件需要注意的地方
 * install函数中需要特殊处理配置文件不存在的情形，因为一些插件是允许先install然后再配置。如果配置是必要的话，就不建议在install函数中执行start函数。同时这种情况建议使用reconfigure。
 * 配置的参数值一般也要保存起来，方便插件在系统重启之后，或者插件重新启动之后可以正常运行
 
-#### reconfigure
++ reconfigure
 一般可以配置的插件需要修改的时候，但是如果每次都执行一次install函数的话，就太重了，需要把整个插件下载下来，同时执行install函数。
 如果已经install过了，但是只是参数修改，那么reconfigure就非常方便。这种情况，服务器只会下发参数配置文件，插件包不会下发。
 支持这个功能，一般要在manifest.json中声明一下：

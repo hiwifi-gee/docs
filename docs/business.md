@@ -12,12 +12,12 @@
 获取key和company_name，key和company_name会在下面的接口中用到
 
 链接地址 ： 
-> ​http://business.hiwifi.com/business.php?m=code&a=info
+> http://business.hiwifi.com/business.php?m=code&a=info
 
 返回结果：
 
 | 属性	| 属性值 |
-| ------------- | ------------- |
+|:-------------| -------------:|
 | company_name	| u138275633 | 
 | key	 | df34fa86300276e05ca722f984ab5300 |
 
@@ -26,7 +26,7 @@
 
 ### 插件安装/卸载接口
 
-#### 接口请求构造
++ 接口请求构造
 
  属性  | 属性值 
  ------- | -------
@@ -40,7 +40,7 @@
  operation | 1/0；1：安装；0：卸载；默认是1
  token | 校验串，过期时间为20s；生成规则$token = $company_name . '\|' . md5($company_name . $key . $time) . '\|' . $time;  $time为当前时间戳
 
-#### 接口返回结果
++ 接口返回结果
  
  参数 | 参数说明
  ---- | ------
@@ -67,7 +67,7 @@
 
 ### 固件自动/手动升级设置接口
 
-#### 接口请求构造
++ 接口请求构造
  属性  | 属性值 
  ------- | -------
  接口URL |  https://app.hiwifi.com/vip.php?m=api&a=SetUpgrade
@@ -80,7 +80,7 @@
  hour | 0 ~ 23；升级小时。本参数仅在设定为自动升级的时候有效
  token | 校验串，过期时间为20s；生成规则$token = $company_name . '\|' . md5($company_name . $key . $time) . '\|' . $time;  $time为当前时间戳
 
-#### 接口返回结果
++ 接口返回结果
  参数 | 参数说明
  ---- | ------
  stauts | = 0说明，接口请求正常，非0的时候，请求失败，具体信息看msg字段
@@ -106,10 +106,10 @@
 
 ### 获取可以升级到的version列表接口
 
-#### 接口请求构造
++ 接口请求构造
  属性  | 属性值 
  ------- | -------
- 接口URL |   ​https://app.hiwifi.com/vip.php?m=api&a=GetUpgrateVersion
+ 接口URL |   https://app.hiwifi.com/vip.php?m=api&a=GetUpgrateVersion
  提交Method | POST
 
  提交参数 | 参数说明
@@ -117,7 +117,7 @@
  macs | 设备mac列表，以英文,拼接，最多200个，如：D4EE070xxx,D4EE070xxx,D4EE070xxx
  token | 校验串，过期时间为20s；生成规则$token = $company_name . '\|' . md5($company_name . $key . $time) . '\|' . $time;  $time为当前时间戳
 
-#### 接口返回结果
++ 接口返回结果
  参数 | 参数说明
  ---- | ------
  stauts | = 0说明，接口请求正常，非0的时候，请求失败，具体信息看msg字段
@@ -143,10 +143,10 @@
 
 ### 强制升级rom接口
 
-#### 接口请求构造
++ 接口请求构造
  属性  | 属性值 
  ------- | -------
- 接口URL |  ​https://app.hiwifi.com/vip.php?m=api&a=ForceUpgrate
+ 接口URL |  https://app.hiwifi.com/vip.php?m=api&a=ForceUpgrate
  提交Method | POST
 
  提交参数 | 参数说明
@@ -154,7 +154,7 @@
  macs  | 设备mac列表，以英文,拼接，最多200个，如：D4EE070xxx,D4EE070xxx,D4EE070xxx
  token | 校验串，过期时间为20s；生成规则$token = $company_name . '\|' . md5($company_name . $key . $time) . '\|' . $time;  $time为当前时间戳
 
-#### 接口返回结果
++ 接口返回结果
  参数 | 参数说明
  ---- | ------
  stauts | = 0说明，接口请求正常，非0的时候，请求失败，具体信息看msg字段
@@ -180,10 +180,10 @@
 
 ### 执行openapi的相关接口
 
-#### 接口请求构造
++ 接口请求构造
  属性  | 属性值 
  ------- | -------
- 接口URL |  ​https://app.hiwifi.com/vip.php?m=api&a=CallRouter
+ 接口URL |  https://app.hiwifi.com/vip.php?m=api&a=CallRouter
  提交Method | POST
 
  提交参数 | 参数说明
@@ -195,7 +195,7 @@
 
 具体都有哪些method可以调用，请参见： https://code.hiwifi.com/wiki/hiwifi/openapi 最下面的openapi文档，每个方法对应的参数，就是params的要求
 
-#### 接口返回结果
++ 接口返回结果
  参数 | 参数说明
  ---- | ------
  stauts | = 0说明，接口请求正常，非0的时候，请求失败，具体信息看msg字段

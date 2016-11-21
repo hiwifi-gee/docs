@@ -76,8 +76,8 @@ bind 接口用于对设备授权，插件作者可以通过调用此 API 来授�
 |参数名 | 类型| 说明 |
 | ---- | ---- | ----- | 
 | app_id | string |插件的 APP_KEY, 可以从 open.hiwifi.com 插件基本信息页面看到|
-|app_name| string | 插件名字, 申请插件的时候取的，不要好包含空格及其他特殊符号 |
-|client_id | string | 插件作者需要绑定客户端安装实例的 ID,  插件作者客户端app_id + client_id 可以唯一确定一个 app  安装实例 |
+|app_name| string | 插件名字, 申请插件的时候取的，不要包含空格及其他特殊符号 |
+|client_id | string | 插件作者需要绑定客户端安装实例的 ID, 客户端app_id + client_id 可以唯一确定一个 app  安装实例 |
 |dev_id | string | 需要绑定的路由器id, 即MAC 地址，全大写 |
 |permissions |object | 可选参数，需要授权的 API 命名空间列表. 默认只可以调用所有 apps.{app_id}.下面所有方法 |
 |expire_period | int |可选参数，授权过期时间(暂未实现) |
@@ -99,7 +99,7 @@ unbind 接口用于对取消对设备授权，解绑后客户端将不再能调�
 | ---- | ---- | ----- | 
 | app_id | string |插件的 APP_KEY, 可以从 open.hiwifi.com 插件基本信息页面看到|
 | app_name | string |插件名字, 申请插件的时候取的，不要包含空格及其他特殊符号|
-| client_id |string | 插件作者需要绑定客户端安装实例的 ID,  插件作者客户端app_id + client_id 可以唯一确定一个 app  安装实例|
+| client_id |string | 插件作者需要绑定客户端安装实例的 ID, 客户端app_id + client_id 可以唯一确定一个 app  安装实例|
 | dev_id  | string | 需要绑定的路由器id, 即MAC 地址，全大写 |
 
 输出 data 对象
@@ -112,7 +112,7 @@ status 接口用于查询路由器一些基本信息，目前只支持在线状�
 | 参数名 | 类型 | 说明 |
 | ----- | --- | ---- |
 | app_id | string | 插件的 APP_KEY, 可以从 open.hiwifi.com 插件基本信息页面看到 |
-| app_name | string | 插件名字, 申请插件的时候取的，不要好包含空格及其他特殊符号 |
+| app_name | string | 插件名字, 申请插件的时候取的，不要包含空格及其他特殊符号 |
 | dev_id | string | 需要绑定的路由器id, 即MAC 地址，全大写 |
 
 输出 data 对象：
@@ -128,7 +128,7 @@ call 接口用于直接对路由器中的接口进行同步调用，此接口只
 |参数名 | 类型 | 说明 |
 | ----- | --- | ---- |
 | app_id | string | 插件的 APP_KEY, 可以从 open.hiwifi.com 插件基本信息页面看到|
-| app_name | string | 插件名字, 申请插件的时候取的，不要好包含空格及其他特殊符号 |
+| app_name | string | 插件名字, 申请插件的时候取的，不要包含空格及其他特殊符号 |
 | dev_id | string | 需要调用路由器id, 即MAC 地址，全大写 |
 | timeout | string | 超时时间，以秒为单位，超过此时间将返回一个超时错误 |
 | method | string | 需要调用的方法名|
@@ -194,7 +194,7 @@ http://client.openapi.hiwifi.com/{action}?sign={sign}&dev_id={dev_id}
 
 使用 POST 方式提交 JSON 格式的请求，Content-Type 需要设置为 application/json
 
-dev_id 为欲调用的设备的MAC地址
+dev_id 为准备调用的设备的MAC地址
 
 sign 值生成规则如下(以 php 代码作为例子)
 
@@ -227,7 +227,7 @@ call 接口用于直接对路由器中的接口进行同步调用，此接口只
 | 参数名 | 类型 | 说明 |
 | ----- | ---- | ---- |
 | app_id | string | 插件的 APP_KEY, 可以从 open.hiwifi.com 插件基本信息页面看到 |
-| app_name | string | 插件名字, 申请插件的时候取的，不要好包含空格及其他特殊符号 |
+| app_name | string | 插件名字, 申请插件的时候取的，不要包含空格及其他特殊符号 |
 | client_id | string |客户端 id |
 | dev_id | string |需要调用路由器id, 即MAC 地址，全大写 |
 | timeout | string |超时时间，以秒为单位，超过此时间将返回一个超时错误 |
@@ -251,7 +251,7 @@ status 接口用于查询路由器一些基本信息，目前只支持在线状�
 | 参数名 | 类型 | 说明 |
 | ---- | ---- | ---- |
 | app_id | string |插件的 APP_KEY, 可以从 open.hiwifi.com 插件基本信息页面看到 |
-| app_name |string |插件名字, 申请插件的时候取的，不要好包含空格及其他特殊符号 |
+| app_name |string |插件名字, 申请插件的时候取的，不要包含空格及其他特殊符号 |
 | client_id |string |客户端 id |
 | dev_id |string | 需要绑定的路由器id, 即MAC 地址，全大写 |
 
@@ -264,9 +264,6 @@ status 接口用于查询路由器一些基本信息，目前只支持在线状�
 ### router_info
 router_info接口返回路由器的系统版本，mac地址等信息
 输入参数:
-| 参数名 | 类型 | 说明 |
-| ----- | --- | ---- |
-
 返回结果
 ```javascript
 {

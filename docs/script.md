@@ -24,7 +24,7 @@ cp app.json	/etc/market/PLUGIN_NAME.info
 install和uninstall两个互逆函数。
 一定要保证在install函数中做的操作，在uninstall函数中都会被撤销掉。
 
-+ 如果安装过程中出现错误，如何提示给用户？
+如果安装过程中出现错误，如何提示给用户？
 如果在install和uninstall中出现错误，可以echo以<User-Echo>开头的字符串，服务端会提示给用户。
 具体的格式如下：
 ```bash

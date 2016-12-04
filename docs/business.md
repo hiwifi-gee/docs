@@ -209,7 +209,7 @@ token | 校验串，过期时间为20s；生成规则$token = $company_name . '\
 method | string， openai的method参数，比如：network.wireless.set_channel 
 params | json字符串， openapi的参数，对应上面的例子，{"device":"radio0.network1", "channel":13}
 
-具体都有哪些method可以调用，请参见： https://code.hiwifi.com/wiki/hiwifi/openapi 最下面的openapi文档，每个方法对应的参数，就是params的要求
+具体都有哪些method可以调用，请参见：http://doc.hiwifi.com/docs/openapi  最下面的openapi文档，每个方法对应的参数，就是params的要求
 
 + 接口返回结果
 

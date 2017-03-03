@@ -33,7 +33,6 @@ ln -sf bash /bin/sh
 
 ### 方法一：以package方式编译C代码
 * 按照OpenWrt格式将代码目录放到hc5761/package下面;
-* 在hc5761/目录下执行make menuconfig , 选中添加的package（M）, 保存退出;
 * 执行: 
 ```bash
 make package/<package目录名>/compile V=s
@@ -45,21 +44,4 @@ make package/<package目录名>/compile V=s
 ./scripts/cross-compile.sh ./
 ```
  之后, 该shell环境中的gcc, g++, ld等命令即引用到交叉编译工具的相应命令。详细使用方法请参考[交叉编译环境建立方法](./cross_compile)，或SDK工具包中的cross-compile.docx。
-
-## 添加feeds中的软件包的方法
-* 以增加 libffmpeg 为例：
-```bash
-./scripts/feeds update
-./scripts/feeds install ffmpeg
-```
-* 然后执行：
-```bash
-make menuconfig
-```
-* 在 Libraries 里把libffmpeg-xxxx 选中（M）,再执行：
-```bash
-make package/ffmpeg/compile
-make package/ffmpeg/install
-```
-
 
